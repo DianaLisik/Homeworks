@@ -8,17 +8,6 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-//        Product product = new Product("coff",102);
-//        DiscountProduct milk = new DiscountProduct("milk",80,10,true);
-//
-//        Person person = new Person("Vasay",1000);
-//
-//        person.addProduct(product);
-//        person.addProduct(milk);
-//
-//        System.out.println(milk);
-
-
         Scanner scanner = new Scanner(System.in);
 
         List<Product> listProduct = new ArrayList<>();

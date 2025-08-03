@@ -5,10 +5,17 @@ import java.util.Objects;
 public class Product {
     private String name;
     private long cost;
+    private boolean restrictions = false;
 
     public Product(String name, long cost) {
         this.setName(name);
         this.setCost(cost);
+    }
+
+    public Product(String name, long cost, boolean restrictions) {
+        this.setName(name);
+        this.setCost(cost);
+        this.restrictions = restrictions;
     }
 
     public String getName() {
@@ -17,15 +24,13 @@ public class Product {
 
     public void setName(String name) {
         if (!name.isEmpty()) {
-            if (name.matches("\\d+")) throw new IllegalArgumentException("Недопустимая стоимость продукта!\n" +
+            if (name.matches("\\d+")) throw new IllegalArgumentException("Недопустимая имя продукта!\n" +
                     "Имя не может содержать только цифры");
-            if (name.length() <= 3) throw new IllegalArgumentException("Недопустимая стоимость продукта!\n" +
+            if (name.length() <= 3) throw new IllegalArgumentException("Недопустимая имя продукта!\n" +
                     "Имя из 3-х символов недопустимо");
             this.name = name;
         } else {
-//            System.out.println("Имя не может быть пустым");
-//            System.exit(0);
-            throw new IllegalArgumentException("Недопустимая стоимость продукта!\n" +
+            throw new IllegalArgumentException("Недопустимая имя продукта!\n" +
                     "Имя не может быть пустым");
         }
     }
@@ -43,6 +48,14 @@ public class Product {
             throw new IllegalArgumentException("Недопустимая стоимость продукта!\n" +
                     "Деньги не могут быть отрицательными");
         }
+    }
+
+    public boolean isRestrictions() {
+        return restrictions;
+    }
+
+    public void setRestrictions(boolean restrictions) {
+        this.restrictions = restrictions;
     }
 
     @Override
