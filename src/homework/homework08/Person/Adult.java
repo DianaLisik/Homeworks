@@ -1,4 +1,4 @@
-package homework.homework07;
+package homework.homework08.Person;
 
 public class Adult extends Person {
     public Adult(String name, long money, int age) {

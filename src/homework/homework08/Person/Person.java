@@ -1,6 +1,9 @@
-package homework.homework07;
+package homework.homework08.Person;
 
-import java.util.ArrayList;
+import homework.homework08.Product.DiscountProduct;
+import homework.homework08.Product.Product;
+import homework.homework08.File.File;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -14,6 +17,17 @@ public class Person {
     private Product[] products = new Product[0];
     private boolean male; //пол - мужчина
 
+    public Person(String parans) {
+        String[] paransArray = parans.split(" = ");
+        this.setName(paransArray[0]);
+        this.setMoney(Integer.parseInt(paransArray[1]));
+    }
+
+    private Person(String name, long money) {
+        this.setName(name);
+        this.setMoney(money);
+    }
+
     public Person(String name, long money, int age) {
         this.setName(name);
         this.setMoney(money);
@@ -26,8 +40,13 @@ public class Person {
         return person;
     }
 
+    public static Person getIndex(String name) {
+        Person p = new Person(name, 1);
+        return p;
+    }
+
     public String getName() {
-        return null;
+        return name;
     }
 
     public void setName(String name) {
@@ -53,9 +72,7 @@ public class Person {
             if (money > 0) {
                 this.money = money;
             } else {
-                System.out.println("Деньги не могут быть отрицательными");
-                System.exit(0);
-//            throw new IllegalArgumentException("Деньги не могут быть отрицательными");
+                throw new IllegalArgumentException("Деньги не могут быть отрицательными");
             }
         }
     }
@@ -68,8 +85,7 @@ public class Person {
         if (age > 0) {
             this.age = age;
         } else {
-            System.out.println("Возраст не можетт быть отрицательными");
-            System.exit(0);
+            throw new IllegalArgumentException("Возраст не может быть отрицательными");
         }
     }
 
@@ -113,12 +129,12 @@ public class Person {
                 this.money -= costProduct;
                 String str = (male) ? this.name + " купил " + product.getName() :
                         this.name + " купила " + product.getName();
-                System.out.println(str);
+                File.outputFile(str);
             } else {
-                System.out.println(this.name + " не может купить " + product.getName());
+                File.outputFile(this.name + " не может купить " + product.getName());
             }
         } else {
-            System.out.println(name + " не может позволить себе " + product.getName());
+            File.outputFile(name + " не может позволить себе " + product.getName());
         }
     }
 

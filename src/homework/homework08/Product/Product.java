@@ -1,4 +1,4 @@
-package homework.homework07;
+package homework.homework08.Product;
 
 import java.util.Objects;
 
@@ -12,10 +12,21 @@ public class Product {
         this.setCost(cost);
     }
 
+    public Product(String parans) {
+        String[] paransArray = parans.split(" = ");
+        this.setName(paransArray[0]);
+        this.setCost(Long.parseLong(paransArray[1]));
+    }
+
     public Product(String name, long cost, boolean restrictions) {
         this.setName(name);
         this.setCost(cost);
         this.restrictions = restrictions;
+    }
+
+    public static Product getIndex (String name) {
+        Product p = new Product(name,1);
+        return p;
     }
 
     public String getName() {

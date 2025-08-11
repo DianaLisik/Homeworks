@@ -3,6 +3,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .idea
+Homeworks.iml
 
 
 ### Eclipse ###
@@ -29,3 +30,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/src/homework/homework08/HW07/
