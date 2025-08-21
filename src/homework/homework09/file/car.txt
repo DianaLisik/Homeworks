@@ -1,0 +1,3 @@
+Toyota, Corolla, 2020, 122, 180, 140, 300
+Volkswagen, Golf, 2018, 150, 210, 135, 150
+Skoda, Octavia, 2021, 150, 212, 150, 50
