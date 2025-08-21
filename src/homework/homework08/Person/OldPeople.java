@@ -1,4 +1,4 @@
-package homework.homework07;
+package homework.homework08.Person;
 
 public class OldPeople extends Person {
     public OldPeople(String name, long money, int age) {
