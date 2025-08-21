@@ -21,9 +21,10 @@ public class App {
             garage.addCar(ShowCar.inGarage(params));
         }
 
-        garage.modificateCar(4);
-        System.out.println(garage.showCar(4));
+        garage.modificateCar(3);
+        System.out.println(garage.showCar(3));
 
+        System.out.println("");
         garage.modificateCar(7);
         System.out.println(garage.showCar(7));
 

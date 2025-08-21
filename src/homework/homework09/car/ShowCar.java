@@ -10,7 +10,8 @@ public class ShowCar extends Car {
     public ShowCar() {
     }
 
-    public ShowCar(String brand, String model, int age, int power, int speed, int clearance, int durability, int stars) {
+    public ShowCar(String brand, String model, int age, int power, int speed,
+                   int clearance, int durability, int stars) {
         super(brand, model, age, power, speed, clearance, durability);
         this.stars = stars;
     }

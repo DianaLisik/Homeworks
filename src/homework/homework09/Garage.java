@@ -61,7 +61,6 @@ public class Garage {
                     System.out.println("Введите новое дополнение: ");
                     String newParam = scanner.nextLine();
                     newParam = scanner.nextLine();
-                    System.out.println(newParam);
                     ((PerformanceCar) car).addAddons(newParam);
                     break;
                 }

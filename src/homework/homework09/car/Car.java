@@ -93,7 +93,8 @@ public class Car {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return age == car.age && power == car.power && speed == car.speed && clearance == car.clearance && durability == car.durability && Objects.equals(brand, car.brand) && Objects.equals(model, car.model);
+        return age == car.age && power == car.power && speed == car.speed && clearance == car.clearance &&
+                durability == car.durability && Objects.equals(brand, car.brand) && Objects.equals(model, car.model);
     }
 
     @Override

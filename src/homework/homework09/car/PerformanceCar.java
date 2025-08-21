@@ -11,7 +11,8 @@ public class PerformanceCar extends Car {
         this.addons = addons;
     }
 
-    public PerformanceCar(String brand, String model, int age, int power, int speed, int clearance, int durability, String[] addons) {
+    public PerformanceCar(String brand, String model, int age, int power, int speed, int clearance,
+                          int durability, String[] addons) {
         super(brand, model, age, power, speed, clearance, durability);
         this.addons = addons;
     }
@@ -56,6 +57,6 @@ public class PerformanceCar extends Car {
 
     @Override
     public String toString() {
-        return "гоночное " + super.toString() + " Дополнительно: " + Arrays.toString(addons);
+        return "гоночное " + super.toString() + " \nДополнительно: " + Arrays.toString(addons);
     }
 }
