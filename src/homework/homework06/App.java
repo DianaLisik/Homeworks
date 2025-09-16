@@ -3,6 +3,9 @@ package homework.homework06;
 import java.util.*;
 
 public class App {
+    private static Person[] listPerson;
+    private static ArrayList<Product> listProduct;
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -11,50 +14,57 @@ public class App {
 //        String products = "Хлеб = 40; Молоко = 60; Торт = 1000; Кофе растворимый = 879; Масло = 150";
 
         System.out.println("Введите покупателей в формате [покупатель = деньги, ...]");
-        String persons = scanner.nextLine();
+        listPerson = getPersonsFromLine(scanner.nextLine());
         System.out.println("Введите товары в формате [товар = деньги; ...]");
-        String products = scanner.nextLine();
-
-
-        Person[] person = new Person[10];
-        ArrayList<Product> listProduct = new ArrayList<>();
-
-        String[] myArrayPersons = persons.split("( = )|(, )");
-        for (int i = 0, j = 0; i < myArrayPersons.length; i += 2, j++) {
-            person[j] = new Person(myArrayPersons[i], Integer.parseInt(myArrayPersons[i + 1]));
-        }
-
-        String[] myArrayProducts = products.split("( = )|(; )");
-        for (int i = 0; i < myArrayProducts.length; i += 2) {
-            listProduct.add(new Product(myArrayProducts[i], Integer.parseInt(myArrayProducts[i + 1])));
-        }
-
+        listProduct = getProductFromLine(scanner.nextLine());
 
         System.out.println("Работа на кассе. Вводите в формате [покупатель - товар]. \nПо завершению введите [END]");
         while (true) {
             String inputLine = scanner.nextLine();
-            String[] inputPersonProduct;
             if (inputLine.equals("END")) {
                 break;
             } else {
-                inputPersonProduct = inputLine.split("( - )");
+                addProductInPerson(inputLine);
             }
+        }
+        writeListOfPeople();
+    }
 
-            int indexPerson = 0;
-            int indexProduct = listProduct.indexOf(new Product(inputPersonProduct[1]));
+    public static Person[] getPersonsFromLine(String personsLine){
+        Person[] persons = new Person[10];
+        String[] myArrayPersons = personsLine.split("( = )|(, )");
+        for (int i = 0, j = 0; i < myArrayPersons.length; i += 2, j++) {
+            persons[j] = new Person(myArrayPersons[i], Integer.parseInt(myArrayPersons[i + 1]));
+        }
+        return persons;
+    }
 
+    public static  ArrayList<Product> getProductFromLine(String productLine){
+        ArrayList<Product> products = new ArrayList<>();
+        String[] myArrayProducts = productLine.split("( = )|(; )");
+        for (int i = 0; i < myArrayProducts.length; i += 2) {
+            products.add(new Product(myArrayProducts[i], Integer.parseInt(myArrayProducts[i + 1])));
+        }
+        return products;
+    }
 
-            for (int i = 0; i < person.length - 1; i++) {
-                if (person[i].getName().equals(inputPersonProduct[0])) {
-                    indexPerson = i;
-                    break;
-                }
+    public static void addProductInPerson (String line) {
+        String[] personProduct = line.split("( - )");
+        int indexPerson = 0;
+        int indexProduct = listProduct.indexOf(new Product(personProduct[1]));
+
+        for (int i = 0; i < listPerson.length - 1; i++) {
+            if (listPerson[i].getName().equals(personProduct[0])) {
+                indexPerson = i;
+                break;
             }
-
-            person[indexPerson].addProduct(listProduct.get(indexProduct));
         }
 
-        for (Person element : person) {
+        listPerson[indexPerson].addProduct(listProduct.get(indexProduct));
+    }
+
+    public static void writeListOfPeople() {
+        for (Person element : listPerson) {
             if (element == null) break;
             System.out.println(element.toString());
         }
