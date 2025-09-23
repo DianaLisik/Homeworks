@@ -7,6 +7,8 @@ import homework.homework08.File.File;
 import java.util.Arrays;
 import java.util.Objects;
 
+import static homework.utils.ParseUtils.parseCount;
+
 public class Person {
 
     private String name;
@@ -20,7 +22,7 @@ public class Person {
     public Person(String parans) {
         String[] paransArray = parans.split(" = ");
         this.setName(paransArray[0]);
-        this.setMoney(Integer.parseInt(paransArray[1]));
+        this.setMoney(parseCount(paransArray[1]));
     }
 
     private Person(String name, long money) {

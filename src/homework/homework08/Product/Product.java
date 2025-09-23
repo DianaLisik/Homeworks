@@ -2,6 +2,8 @@ package homework.homework08.Product;
 
 import java.util.Objects;
 
+import static homework.utils.ParseUtils.parseCount;
+
 public class Product {
     private String name;
     private long cost;
@@ -15,7 +17,7 @@ public class Product {
     public Product(String parans) {
         String[] paransArray = parans.split(" = ");
         this.setName(paransArray[0]);
-        this.setCost(Long.parseLong(paransArray[1]));
+        this.setCost(parseCount(paransArray[1]));
     }
 
     public Product(String name, long cost, boolean restrictions) {
