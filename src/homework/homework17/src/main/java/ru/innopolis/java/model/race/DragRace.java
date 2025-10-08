@@ -1,6 +1,6 @@
-package ru.innopolis.java.race;
+package ru.innopolis.java.model.race;
 
-import ru.innopolis.java.car.Car;
+import ru.innopolis.java.model.car.Car;
 
 //гонка за самый мощный двигатель. Идеальное переключение передач — залог победы.
 

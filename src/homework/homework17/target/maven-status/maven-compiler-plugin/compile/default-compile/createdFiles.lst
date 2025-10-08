@@ -1,0 +1,11 @@
+ru\innopolis\java\model\car\Car.class
+ru\innopolis\java\App.class
+ru\innopolis\java\Garage.class
+ru\innopolis\java\model\race\CasualRace.class
+ru\innopolis\java\model\race\Race.class
+ru\innopolis\java\model\car\ShowCar.class
+ru\innopolis\java\model\car\PerformanceCar.class
+ru\innopolis\java\model\race\DriftRace.class
+ru\innopolis\java\model\race\DragRace.class
+ru\innopolis\java\repositories\impl\CarRepositoryFileImpl.class
+ru\innopolis\java\repositories\CarRepository.class

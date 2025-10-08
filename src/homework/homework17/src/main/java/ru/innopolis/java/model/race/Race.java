@@ -1,10 +1,9 @@
-package ru.innopolis.java.race;
-
+package ru.innopolis.java.model.race;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import ru.innopolis.java.car.Car;
+import ru.innopolis.java.model.car.Car;
 
 @AllArgsConstructor
 @Getter
@@ -15,6 +14,4 @@ public abstract class Race {
     private String route;
     private int prizeFund;
     private Car[] member;
-
-
 }

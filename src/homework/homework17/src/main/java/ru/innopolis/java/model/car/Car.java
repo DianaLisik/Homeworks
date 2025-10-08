@@ -1,8 +1,6 @@
-package ru.innopolis.java.car;
+package ru.innopolis.java.model.car;
 
 import lombok.*;
-
-import java.util.Objects;
 
 //Базовый автомобиль
 @NoArgsConstructor

@@ -1,8 +1,6 @@
-package ru.innopolis.java.car;
+package ru.innopolis.java.model.car;
 
 import lombok.*;
-
-import java.util.Objects;
 
 //спортивная машина
 @NoArgsConstructor
@@ -13,13 +11,11 @@ public class ShowCar extends Car {
 
     private int stars = 0;
 
-
     public ShowCar(String brand, String model, int age, int power, int speed,
                    int clearance, int durability, int stars) {
         super(brand, model, age, power, speed, clearance, durability);
         this.stars = stars;
     }
-
 
     public static ShowCar inGarage(String params) {
         String[] param = params.split(", ");

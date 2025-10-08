@@ -1,10 +1,9 @@
-package ru.innopolis.java.car;
+package ru.innopolis.java.model.car;
 
 
 import lombok.*;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 //гоночный автомобиль
 @NoArgsConstructor
@@ -15,14 +14,12 @@ public class PerformanceCar extends Car {
 
     private String[] addons;
 
-
     public PerformanceCar(String brand, String model, int age, int power, int speed, int clearance,
                           int durability, String[] addons) {
         super(brand, model, age, power, speed, clearance, durability);
         this.addons = addons;
     }
-
-
+    
     public static PerformanceCar inGarage(String params) {
         String[] param = params.split(", ");
         String[] str = new String[param.length - 7];

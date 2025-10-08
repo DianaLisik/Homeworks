@@ -1,30 +1,20 @@
 package ru.innopolis.java;
 
-
-import ru.innopolis.java.car.Car;
-import ru.innopolis.java.car.PerformanceCar;
-import ru.innopolis.java.car.ShowCar;
-import ru.innopolis.java.file.File;
-import ru.innopolis.java.race.CasualRace;
-import ru.innopolis.java.race.DragRace;
-import ru.innopolis.java.race.Race;
+import ru.innopolis.java.repositories.CarRepository;
+import ru.innopolis.java.repositories.impl.CarRepositoryFileImpl;
 
 public class App {
     public static void main(String[] args) {
 
-        Garage garage = new Garage();
+        CarRepository carRepository = new CarRepositoryFileImpl();
+        Garage garage = ((CarRepositoryFileImpl) carRepository).getGarage();
 
-        String params;
-        while ((params = File.carFile()) != null) {
-            garage.addCar(Car.inGarage(params));
-        }
-        while ((params = File.performanceCarFile()) != null) {
-            garage.addCar(PerformanceCar.inGarage(params));
-        }
-        while ((params = File.showCarFile()) != null) {
-            garage.addCar(ShowCar.inGarage(params));
-        }
+        //Добавление машин в гараж
+        carRepository.allCarInGarage();
+        carRepository.allPerformanceCarInGarage();
+        carRepository.allShowCarInGarage();
 
+        //работа в гараже
         garage.modificateCar(3);
         System.out.println(garage.showCar(3));
 
@@ -32,11 +22,8 @@ public class App {
         garage.modificateCar(7);
         System.out.println(garage.showCar(7));
 
-
-        File.outputFile("Все авто стоящие в гараже");
-        for (Car element : garage.getParkedCars()) {
-            File.outputFile(element.toString());
-        }
+        //вывод всех машин в гараже в файл
+        carRepository.writeListCarsInFile();
 
     }
 }

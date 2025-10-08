@@ -3,9 +3,9 @@ package ru.innopolis.java;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.innopolis.java.car.Car;
-import ru.innopolis.java.car.PerformanceCar;
-import ru.innopolis.java.car.ShowCar;
+import ru.innopolis.java.model.car.Car;
+import ru.innopolis.java.model.car.PerformanceCar;
+import ru.innopolis.java.model.car.ShowCar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,7 @@ import java.util.Scanner;
 @Setter
 public class Garage {
 
-    private List<Car> parkedCars = new ArrayList<>();
-
+    public List<Car> parkedCars = new ArrayList<>();
 
     public String showCar(int carNumber) {
         Car car = parkedCars.get(carNumber);
